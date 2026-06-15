@@ -1,0 +1,74 @@
+{
+    "打开JMComic": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.jiaohua_browser"
+            }
+        },
+        "next": [
+            "点击进入线路"
+        ]
+    },
+    "点击进入线路": {
+        "recognition": "OCR",
+        "expected": "線路1",
+        "action": "Click",
+        "next": [
+            "点击关闭按钮"
+        ]
+    },
+    "点击关闭按钮": {
+        "recognition": "TemplateMatch",
+        "template": "关闭按钮.png",
+        "action": "Click",
+        "next": [
+            "点击进入"
+        ]
+    },
+    "点击进入": {
+        "recognition": "OCR",
+        "expected": "我保證",
+        "action": "Click",
+        "next": [
+            "点击搜索",
+            "点击关闭按钮"
+        ]
+    },
+    "点击搜索": {
+        "recognition": "TemplateMatch",
+        "template": "搜索按钮.png",
+        "action": "Click",
+        "next": [
+            "点击搜索内容"
+        ]
+    },
+    "点击搜索内容": {
+        "recognition": "OCR",
+        "expected": "搜索",
+        "action": "Click",
+        "next": [
+            "输入文本"
+        ]
+    },
+    "输入文本": {
+        "action": "InputText",
+        "input_text": "350234",
+        "next": [
+            "点击搜索按钮2"
+        ]
+    },
+    "点击搜索按钮2": {
+        "recognition": "TemplateMatch",
+        "template": "搜索按钮2.png",
+        "rate_limit": 5000,
+        "action": "Click",
+        "next": [
+            "截图保存"
+        ]
+    },
+    "截图保存": {
+        "rate_limit": 5000,
+        "action": "screencap"
+    }
+}

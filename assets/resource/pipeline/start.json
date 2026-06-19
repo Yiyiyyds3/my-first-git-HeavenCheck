@@ -15,6 +15,13 @@
         "expected": "線路1",
         "action": "Click",
         "next": [
+            "判断点击线路"
+        ]
+    },
+    "判断点击线路": {
+        "recognition": "TemplateMatch",
+        "template": "关闭按钮.png",
+        "next": [
             "点击关闭按钮"
         ]
     },
@@ -38,7 +45,11 @@
     "点击搜索": {
         "recognition": "TemplateMatch",
         "template": "搜索按钮.png",
-        "action": "Click",
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 3,
+        "repeat_delay": 200,
         "next": [
             "点击搜索内容"
         ]
@@ -52,6 +63,7 @@
         ]
     },
     "输入文本": {
+        "pre_delay": 500,
         "action": "InputText",
         "input_text": "350234",
         "next": [
@@ -59,16 +71,28 @@
         ]
     },
     "点击搜索按钮2": {
+        "pre_delay": 800,
         "recognition": "TemplateMatch",
         "template": "搜索按钮2.png",
-        "rate_limit": 5000,
         "action": "Click",
+        "repeat": 2,
+        "next": [
+            "判断点击搜索按钮2"
+        ]
+    },
+    "判断点击搜索按钮2": {
+        "recognition": "TemplateMatch",
+        "template": "评论.png",
         "next": [
             "截图保存"
         ]
     },
     "截图保存": {
-        "rate_limit": 5000,
-        "action": "screencap"
+        "recognition": "TemplateMatch",
+        "template": "评论.png",
+        "action": {
+            "type": "Screencap",
+            "param": {}
+        }
     }
 }
